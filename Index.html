@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simran Teaches IELTS to Bipul | Premium Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --text-muted: #666666;
+            --border: #f0f0f0;
+            --hover-bg: #fafafa;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.03);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Premium Typography */
+        h1 { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 400; }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 120px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            margin-left: 32px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-muted);
+        }
+
+        /* Premium Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            border-radius: 50px; /* Pill shape for premium feel */
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--bg);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid #dcdcdc;
+        }
+
+        .btn-secondary:hover {
+            background: var(--hover-bg);
+            border-color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 200px 0 120px;
+            text-align: center;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 24px auto 48px;
+            font-size: 1.25rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 4px;
+            letter-spacing: -0.04em;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: var(--bg);
+            border-radius: 24px;
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.popular {
+            border: 1px solid var(--text);
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text);
+            color: var(--bg);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 16px 0 24px;
+            letter-spacing: -0.04em;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: normal;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 0 0 32px 0;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            color: #333;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            margin-right: 12px;
+            color: var(--text);
+            font-weight: bold;
+        }
+
+        /* Included Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .icon-card {
+            padding: 40px;
+            background: var(--hover-bg);
+            border-radius: 24px;
+            transition: background 0.3s;
+        }
+        
+        .icon-card:hover {
+            background: #f3f3f3;
+        }
+
+        /* How it Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #e5e5e5;
+            margin-bottom: 16px;
+            letter-spacing: -0.05em;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-card p {
+            font-size: 1.05rem;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .student-info {
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .student-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #e5e5e5;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 32px 0;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+        }
+
+        .faq-answer {
+            margin-top: 16px;
+            color: var(--text-muted);
+            display: none;
+            font-size: 1.05rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+        
+        .faq-question span {
+            transition: transform 0.3s;
+            font-weight: 300;
+        }
+
+        /* Form */
+        .form-container {
+            max-width: 600px;
+            margin: 60px auto 0;
+            background: var(--bg);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #dcdcdc;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg);
+            transition: border 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-socials {
+            margin-bottom: 24px;
+        }
+
+        .footer-socials a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-socials a:hover {
+            opacity: 0.6;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid, .steps-grid, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links { display: none; }
+            .hero-buttons { flex-direction: column; }
+            .hero { padding: 160px 0 80px; }
+            section { padding: 80px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Simran Teaches IELTS to Bipul</div>
+            <div class="nav-links">
+                <a href="#courses">Courses</a>
+                <a href="#included">What's Included</a>
+                <a href="#faq">FAQ</a>
+                <a href="#enroll" class="btn btn-primary" style="padding: 10px 24px; margin-left: 32px;">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Master IELTS.<br>Unlock Your Future.</h1>
+            <p class="fade-in">Premium, structured coaching for students who need Band 7+. Join the fastest-growing IELTS community.</p>
+            <div class="hero-buttons fade-in">
+                <a href="#courses" class="btn btn-primary">View Courses</a>
+                <a href="#enroll" class="btn btn-secondary">Book Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="border: none; padding: 40px 0;">
+        <div class="container">
+            <div class="stats-grid fade-in">
+                <div class="stat-item">
+                    <h3>450K+</h3>
+                    <p>Monthly Reach</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24K+</h3>
+                    <p>Community Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Organic Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;" class="fade-in">
+                <h2>Choose Your Path</h2>
+                <p>Whether you need a quick diagnostic or full 1-on-1 coaching, we have a plan for you.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card fade-in">
+                    <h3>Self-Study</h3>
+                    <div class="price">$49<span>/one-time</span></div>
+                    <ul class="features-list">
+                        <li>Full Access to ivn.testmigo.com</li>
+                        <li>50+ Full Mock Tests</li>
+                        <li>Band 9 Essay Templates (eBook)</li>
+                        <li>Diagnostic Testing</li>
+                    </ul>
+                    <a href="#enroll" class="btn btn-secondary" style="text-align: center; width: 100%;">Get Started</a>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="pricing-card popular fade-in">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>Group Intensive</h3>
+                    <div class="price">$129<span>/month</span></div>
+                    <ul class="features-list">
+                        <li><strong>21-Day Live Online Intensive</strong></li>
+                        <li>Full Access to Mock Tests</li>
+                        <li>Weekly Graded Mock Tests</li>
+                        <li>Band 9 Material</li>
+                        <li>WhatsApp Support Group</li>
+                    </ul>
+                    <a href="#enroll" class="btn btn-primary" style="text-align: center; width: 100%;">Join the Intensive</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="pricing-card fade-in">
+                    <h3>Private Elite</h3>
+                    <div class="price">$249<span>/month</span></div>
+                    <ul class="features-list">
+                        <li><strong>1-on-1 Private Coaching</strong></li>
+                        <li>Fully Customized Study Plan</li>
+                        <li>Unlimited Mock Test Access</li>
+                        <li>Personal Essay Grading</li>
+                        <li>Speaking Mock Interviews</li>
+                    </ul>
+                    <a href="#enroll" class="btn btn-secondary" style="text-align: center; width: 100%;">Apply for 1-on-1</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="included">
+        <div class="container">
+            <h2 class="fade-in">Everything you need to succeed.</h2>
+            <p class="fade-in">No fluff. Just the exact tools, tests, and feedback you need to hit Band 7+.</p>
+            
+            <div class="icon-grid">
+                <div class="icon-card fade-in">
+                    <h3>🎥 Live Sessions</h3>
+                    <p>Interactive online classes covering strategies for all 4 sections.</p>
+                </div>
+                <div class="icon-card fade-in">
+                    <h3>💻 Cambridge Mocks</h3>
+                    <p>Full access to the official Testmigo platform for real computer-delivered practice.</p>
+                </div>
+                <div class="icon-card fade-in">
+                    <h3>📖 Band 9 eBook</h3>
+                    <p>Our signature Tier 1 material with model answers and exact templates.</p>
+                </div>
+                <div class="icon-card fade-in">
+                    <h3>📱 WhatsApp Support</h3>
+                    <p>Direct access to Simran and a community of driven students for daily accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="fade-in">How it works.</h2>
+            <div class="steps-grid">
+                <div class="fade-in">
+                    <div class="step-number">01</div>
+                    <h3>Choose Your Plan</h3>
+                    <p>Select the level of support that matches your budget and target score.</p>
+                </div>
+                <div class="fade-in">
+                    <div class="step-number">02</div>
+                    <h3>Get Instant Access</h3>
+                    <p>Receive your login to the mock test platform, your eBook, and your class schedule.</p>
+                </div>
+                <div class="fade-in">
+                    <div class="step-number">03</div>
+                    <h3>Start Studying</h3>
+                    <p>Take your diagnostic, join the live classes, and let's get you to Band 7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="fade-in">Real students. Real results.</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"I was stuck at 5.5 for months. The 1-on-1 sessions completely changed my approach to Writing Task 2. I hit a 7.5 on my next attempt."</p>
+                    <div class="student-info">
+                        <div class="student-avatar"></div>
+                        <div>
+                            <strong>Jana H.</strong><br>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Studying in New Zealand</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"The mock test platform is a lifesaver. Doing full CD-IELTS mocks under real timing made the actual exam feel like just another practice day."</p>
+                    <div class="student-info">
+                        <div class="student-avatar"></div>
+                        <div>
+                            <strong>David M.</strong><br>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Canada PR Applicant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="fade-in">Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Are the mock tests updated for the Computer-Delivered IELTS? <span>+</span></div>
+                <div class="faq-answer">Yes. All our practice materials and mock tests on ivn.testmigo.com perfectly simulate the CD-IELTS interface, including timers and on-screen highlighting.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if I miss a live class? <span>+</span></div>
+                <div class="faq-answer">Every live session is recorded and uploaded to your dashboard so you can watch it back at your convenience.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I upgrade my plan later? <span>+</span></div>
+                <div class="faq-answer">Absolutely. If you start with the Self-Study plan and decide you need live coaching, you can upgrade to the Group or Private plan at any time.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you offer refunds? <span>+</span></div>
+                <div class="faq-answer">Because our products are digital and give instant access to premium materials, we do not offer refunds. However, we are committed to your success and will support you until you reach your target score.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll">
+        <div class="container">
+            <div style="text-align: center;" class="fade-in">
+                <h2>Ready to start?</h2>
+                <p>Fill out the form below and I'll personally reach out to you on WhatsApp within 24 hours.</p>
+            </div>
+
+            <div class="form-container fade-in">
+                <form id="enrollForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" required placeholder="+977 or +1...">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Band Score (Estimated)</label>
+                        <select id="currentBand">
+                            <option>I haven't taken it yet</option>
+                            <option>5.0 - 5.5</option>
+                            <option>6.0 - 6.5</option>
+                            <option>7.0+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Target Band Score</label>
+                        <select id="targetBand">
+                            <option>6.5</option>
+                            <option>7.0</option>
+                            <option>7.5</option>
+                            <option>8.0+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Which plan are you interested in?</label>
+                        <select id="plan">
+                            <option>Self-Study ($49)</option>
+                            <option>Group Intensive ($129)</option>
+                            <option>Private Elite ($249)</option>
+                            <option>Not sure yet</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="[YOUR_INSTAGRAM_LINK]" target="_blank">Instagram</a>
+                <a href="[YOUR_TIKTOK_LINK]" target="_blank">TikTok</a>
+            </div>
+            <p style="font-size: 0.9rem;">© 2024 Simran Teaches IELTS to Bipul. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Form Submission to WhatsApp
+        document.getElementById('enrollForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const currentBand = document.getElementById('currentBand').value;
+            const targetBand = document.getElementById('targetBand').value;
+            const plan = document.getElementById('plan').value;
+
+            // Replace with your actual WhatsApp number (Include country code, no +)
+            const myWhatsAppNumber = "[YOUR_WHATSAPP_NUMBER]"; 
+
+            const message = `Hello Simran! I want to enroll.%0A%0A*Name:* ${name}%0A*My WhatsApp:* ${whatsapp}%0A*Current Band:* ${currentBand}%0A*Target Band:* ${targetBand}%0A*Interested Plan:* ${plan}`;
+            
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${message}`, '_blank');
+        });
+    </script>
+</body>
+</html>
